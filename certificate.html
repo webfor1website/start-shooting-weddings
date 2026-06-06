@@ -13,61 +13,95 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     </noscript>
     <style>
+        .certificate-wrapper {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
         .certificate-container {
-            max-width: 900px;
-            margin: 4rem auto;
+            background: linear-gradient(135deg, #fdfaf6 0%, #f5f0e6 100%);
+            border: 12px solid #C9A96E;
             padding: 3rem;
-            background-color: #fdfaf6;
-            border: 8px solid #C9A96E;
             text-align: center;
             font-family: 'Playfair Display', serif;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .certificate-container::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 2px solid #C9A96E;
+            pointer-events: none;
+        }
+
+        .certificate-header {
+            margin-bottom: 2rem;
         }
 
         .certificate-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #C9A96E;
             margin-bottom: 0.5rem;
             font-weight: 700;
+            letter-spacing: 2px;
         }
 
         .certificate-subtitle {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 3rem;
+            font-size: 1.25rem;
+            color: #666;
             font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .certificate-body {
+            margin: 2rem 0;
         }
 
         .certificate-text {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #333;
             margin-bottom: 1rem;
             line-height: 1.8;
         }
 
         .name-field {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #C9A96E;
             font-weight: 700;
             border: none;
-            border-bottom: 2px solid #C9A96E;
+            border-bottom: 3px solid #C9A96E;
             background: transparent;
             text-align: center;
             padding: 0.5rem 2rem;
             margin: 1rem 0;
             font-family: 'Playfair Display', serif;
-            min-width: 300px;
+            min-width: 400px;
+            letter-spacing: 1px;
         }
 
         .name-field:focus {
             outline: none;
-            border-bottom: 3px solid #C9A96E;
+            border-bottom: 4px solid #C9A96E;
+        }
+
+        .name-field::placeholder {
+            color: #C9A96E;
+            opacity: 0.5;
         }
 
         .date-field {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: #333;
             border: none;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #999;
             background: transparent;
             text-align: center;
             padding: 0.5rem 1rem;
@@ -75,69 +109,164 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .signature-line {
-            margin-top: 3rem;
-            padding-top: 2rem;
+        .checklist-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.5);
+            border-radius: 8px;
+        }
+
+        .checklist-title {
+            font-size: 1.1rem;
+            color: #C9A96E;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem 2rem;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .checklist-item {
+            font-size: 0.95rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            line-height: 1.4;
+        }
+
+        .checklist-item::before {
+            content: '✓';
+            color: #C9A96E;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .signature-section {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
             border-top: 1px solid #C9A96E;
-            font-size: 1rem;
+        }
+
+        .signature-line {
+            font-size: 0.9rem;
             color: #666;
             font-family: 'Inter', sans-serif;
+            font-style: italic;
         }
 
         .print-button {
             margin-top: 2rem;
-            padding: 1rem 2rem;
+            padding: 1rem 3rem;
             background-color: #C9A96E;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         .print-button:hover {
             background-color: #b8985e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 169, 110, 0.4);
         }
 
         .final-message {
-            max-width: 800px;
-            margin: 4rem auto;
+            max-width: 700px;
+            margin: 3rem auto;
             text-align: center;
             font-family: 'Inter', sans-serif;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 8px;
         }
 
         .final-message h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #333;
             margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .final-message p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
             line-height: 1.8;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         @media print {
+            .certificate-wrapper {
+                margin: 0;
+                padding: 0;
+            }
+
             .certificate-container {
                 margin: 0;
                 padding: 2rem;
-                border: 4px solid #C9A96E;
+                border: 6px solid #C9A96E;
+                box-shadow: none;
+            }
+
+            .certificate-container::before {
+                top: 4px;
+                left: 4px;
+                right: 4px;
+                bottom: 4px;
             }
 
             .print-button,
             .nav,
-            .cta-section,
-            .footer {
+            .page-hero,
+            .content-section:not(:has(.certificate-container)),
+            .footer,
+            .final-message {
                 display: none !important;
+            }
+
+            .content-section {
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
             }
 
             body {
                 background-color: white;
+            }
+
+            @page {
+                margin: 0.5cm;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .certificate-title {
+                font-size: 2.5rem;
+            }
+
+            .name-field {
+                font-size: 1.8rem;
+                min-width: 250px;
+            }
+
+            .checklist-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -189,69 +318,53 @@
             <div class="section-intro">
                 <p>You made it. You went from zero experience to a fully equipped, trained, portfolio building, business owning, marketing running wedding photographer. That is not nothing. That is everything.</p>
             </div>
-
-            <div class="section-intro">
-                <h2>Completed Steps</h2>
-            </div>
-
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h3>☑ Gear purchased and ready</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Camera settings mastered</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Flash and lighting dialed in</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Three weddings third shot</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Portfolio built</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Website live</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ The Knot profile created</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ WeddingWire profile created</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Zola profile created</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Instagram account active</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Contract template purchased</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ First booking secured</h3>
-                </div>
-                <div class="feature-item">
-                    <h3>☑ Marketing running</h3>
-                </div>
-            </div>
         </div>
     </section>
 
     <section class="content-section">
         <div class="container">
-            <div class="certificate-container">
-                <h1 class="certificate-title">Certificate of Completion</h1>
-                <p class="certificate-subtitle">How to Become a Wedding Photographer</p>
-                <p class="certificate-text">This certifies that</p>
-                <input type="text" class="name-field" placeholder="Enter your name" id="certificateName">
-                <p class="certificate-text">has completed all requirements to begin their career as a professional wedding photographer</p>
-                <p class="certificate-text">on this day</p>
-                <input type="text" class="date-field" id="certificateDate">
-                <div class="signature-line">
-                    Desert Light Weddings | howtobecomeaweddingphotographer.com
+            <div class="certificate-wrapper">
+                <div class="certificate-container">
+                    <div class="certificate-header">
+                        <h1 class="certificate-title">Certificate of Completion</h1>
+                        <p class="certificate-subtitle">How to Become a Wedding Photographer</p>
+                    </div>
+
+                    <div class="certificate-body">
+                        <p class="certificate-text">This certifies that</p>
+                        <input type="text" class="name-field" placeholder="Enter your name" id="certificateName">
+                        <p class="certificate-text">has completed all requirements to begin their career as a professional wedding photographer</p>
+                        <p class="certificate-text">on this day</p>
+                        <input type="text" class="date-field" id="certificateDate">
+                    </div>
+
+                    <div class="checklist-section">
+                        <div class="checklist-title">Completed Requirements</div>
+                        <div class="checklist-grid">
+                            <div class="checklist-item">Gear purchased and ready</div>
+                            <div class="checklist-item">Camera settings mastered</div>
+                            <div class="checklist-item">Flash and lighting dialed in</div>
+                            <div class="checklist-item">Three weddings third shot</div>
+                            <div class="checklist-item">Portfolio built</div>
+                            <div class="checklist-item">Website live</div>
+                            <div class="checklist-item">The Knot profile created</div>
+                            <div class="checklist-item">WeddingWire profile created</div>
+                            <div class="checklist-item">Zola profile created</div>
+                            <div class="checklist-item">Instagram account active</div>
+                            <div class="checklist-item">Contract template purchased</div>
+                            <div class="checklist-item">First booking secured</div>
+                            <div class="checklist-item">Marketing running</div>
+                        </div>
+                    </div>
+
+                    <div class="signature-section">
+                        <div class="signature-line">
+                            Desert Light Weddings | howtobecomeaweddingphotographer.com
+                        </div>
+                    </div>
+
+                    <button class="print-button" onclick="window.print()">Print Certificate</button>
                 </div>
-                <button class="print-button" onclick="window.print()">Print Certificate</button>
             </div>
         </div>
     </section>
