@@ -17,6 +17,10 @@
             max-width: 1100px;
             margin: 2rem auto;
             padding: 2rem;
+            min-height: calc(100vh - 4rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .certificate-container {
@@ -27,6 +31,8 @@
             font-family: 'Playfair Display', serif;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             position: relative;
+            width: 100%;
+            max-width: 900px;
         }
 
         .certificate-container::before {
@@ -212,6 +218,10 @@
             .certificate-wrapper {
                 margin: 0;
                 padding: 0;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .certificate-container {
@@ -251,7 +261,7 @@
             }
 
             @page {
-                margin: 0.3cm;
+                margin: 0;
                 size: letter;
             }
         }
