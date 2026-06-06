@@ -399,6 +399,22 @@ img {
     background-color: #d8d0c5;
 }
 
+.btn-ebay {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ebay:hover {
+    background-color: #d8d0c5;
+}
+
 @media (max-width: 640px) {
     .product-card {
         flex-direction: column;
