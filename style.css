@@ -189,7 +189,7 @@ img {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 400;
-    color: #A8A8A8;
+    color: var(--text-color);
     letter-spacing: 0.5px;
 }
 
@@ -245,7 +245,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(253, 250, 246, 0.85), rgba(253, 250, 246, 0.7));
+    background: linear-gradient(to bottom, rgba(253, 250, 246, 0.4), rgba(253, 250, 246, 0.3));
 }
 
 .hero .container {
