@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     </noscript>
     <style>
-        .print-shotlist-btn {
-            margin-top: 1.5rem;
+        .print-page-btn {
+            margin-top: 2rem;
             padding: 0.75rem 2rem;
             background-color: #C9A96E;
             color: white;
@@ -27,35 +27,21 @@
             transition: background-color 0.3s ease;
         }
 
-        .print-shotlist-btn:hover {
+        .print-page-btn:hover {
             background-color: #b8985e;
         }
 
         @media print {
-            body.printing-shotlist .nav,
-            body.printing-shotlist .page-hero,
-            body.printing-shotlist .content-section:not(:has(.shot-list-section)),
-            body.printing-shotlist .cta-section,
-            body.printing-shotlist .footer {
+            .nav,
+            .page-hero,
+            .cta-section,
+            .footer,
+            .print-page-btn {
                 display: none !important;
             }
 
-            body.printing-shotlist .shot-list-section {
-                margin: 0;
-                padding: 1rem;
-            }
-
-            body.printing-shotlist .container {
-                max-width: 100%;
-                padding: 0;
-            }
-
-            body.printing-shotlist {
-                background-color: white;
-            }
-
-            body.printing-shotlist .print-shotlist-btn {
-                display: none;
+            .content-section {
+                page-break-inside: avoid;
             }
 
             @page {
@@ -183,7 +169,7 @@
         </div>
     </section>
 
-    <section class="content-section shot-list-section">
+    <section class="content-section">
         <div class="container">
             <div class="section-intro">
                 <h2>Wedding Day Photo Checklist</h2>
@@ -215,10 +201,6 @@
                     <h3>Reception</h3>
                     <p>□ Reception space detail before guests<br>□ Table settings detail<br>□ Centerpieces<br>□ Cake detail<br>□ Grand entrance<br>□ First dance wide<br>□ First dance tight — faces<br>□ Father daughter dance<br>□ Mother son dance<br>□ Toasts — speaker and reactions<br>□ Cake cutting<br>□ Bouquet toss<br>□ Guests dancing candids<br>□ Couple candid moments during reception<br>□ Send off</p>
                 </div>
-            </div>
-
-            <div style="text-align: center;">
-                <button class="print-shotlist-btn" onclick="printShotList()">Print Shot List</button>
             </div>
         </div>
     </section>
@@ -334,6 +316,10 @@
         </div>
     </section>
 
+    <div style="text-align: center; padding: 2rem 0;">
+        <button class="print-page-btn" onclick="window.print()">Print This Guide</button>
+    </div>
+
     <section class="cta-section">
         <div class="container">
             <h2>Shot list ready?</h2>
@@ -348,12 +334,6 @@
     </footer>
 
     <script>
-        function printShotList() {
-            document.body.classList.add('printing-shotlist');
-            window.print();
-            document.body.classList.remove('printing-shotlist');
-        }
-
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('.nav');
             if (window.scrollY > 50) {
